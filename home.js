@@ -23,9 +23,10 @@
 
 //CODE HERE
 
-
-
-
+const greetUser = (username) => {
+    return `Welcome back, ${username}`
+}
+console.log(greetUser("Mackenzie"))
 
 //////////////////PROBLEM 2////////////////////
 /* 
@@ -50,8 +51,15 @@
 const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 
 //CODE HERE
-
-
+const canWeDeliver = (zipCode) => {
+    let result = deliveryAreaZipCodes.includes(zipCode)
+    if (result === true) {
+        return "You're in our delivery zone!"
+    } else {
+        return "Sorry, we can't deliver to that address"
+    }
+}
+// console.log(canWeDeliver(85213))
 
 /* 
     Problem 2 Continued
@@ -71,6 +79,20 @@ const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 */
 
 // CODE HERE
+const canWeDeliverTwo = (zipcode) => {
+    let checker = false
+    deliveryAreaZipCodes.forEach(function(element, index) {
+        if (element === zipcode) {
+            checker = true
+        }
+    })
+    if (checker === true) {
+        return "You're in our delivery zone!"
+    } else {
+        return "Sorry, we can't deliver to that address"
+    }
+}
+// console.log(canWeDeliverTwo(05206))
 
 
 //////////////////PROBLEM 3////////////////////
@@ -107,8 +129,8 @@ const deals = [
 */
 
 //CODE HERE
-
-
+let result = deals[0].title.replace("15", "10")
+console.log(result)
 
 /*
     The restaurant is going to continue its
@@ -122,5 +144,7 @@ const deals = [
     whitespace in this string, since it seems
     to be displaying wrong on the live site.
 */
-
 //CODE HERE
+// .trim
+let result2 = deals[1].desc.replace("March", "April").trim()
+console.log(result2)

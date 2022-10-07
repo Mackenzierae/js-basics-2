@@ -34,9 +34,14 @@ const cart = [
 ]
 
 //CODE HERE
-
+function callback(accumulator, currentValue) {
+    return accumulator + currentValue
+}
 // const summedPrice = cart.reduce(/* CALLBACK HERE */)
+const summedPrice = cart.reduce(callback(cart.price))
 
+//ran out of tiiiiiiiime
+console.log(summedPrice)
 
 //////////////////PROBLEM 2////////////////////
 /*  

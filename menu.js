@@ -6,8 +6,6 @@
     deals with food objects, arrays of objects
     and filtering those arrays. 
 */
-
-
 //////////////////PROBLEM 1////////////////////
 /*  
     Create an object called `pizza` that has 6
@@ -31,8 +29,14 @@
 */
 
 //CODE HERE
-
-
+const pizza = {
+    name: "margherita",
+    price: 10,
+    category: "entre",
+    popularity: 5,
+    rating: 4.7,
+    tags: ["veggie", "kids", "dinner"]
+}
 
 //////////////////PROBLEM 2////////////////////
 /* 
@@ -41,29 +45,25 @@
     First, log the popularity of pizza. 
     Use dot notation to access the value.
 */
-
 //CODE HERE
-
-
+console.log(pizza.popularity)
 /*
     Second, log the second tag in your pizza's
     tags array.
     Use a combination of dots and brackets to
     get the value.
 */
-
 //CODE HERE
-
-
+console.log(pizza.tags[1])
 /*
     Third, destructure the price off of the
     pizza object.
     
     Print the value of your new price variable.
 */
-
 //CODE HERE
-
+let {price} = pizza
+console.log(price)
 
 /*
     Fourth, and last, destructure the category
@@ -73,7 +73,8 @@
 */
 
 //CODE HERE
-
+let {category} = pizza
+console.log(category)
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -88,7 +89,48 @@
 */
 
 //CODE HERE
-
+const foodArr = [
+    {pizza: {
+        name: "margherita",
+        price: 10,
+        category: "entre",
+        popularity: 5,
+        rating: 4.7,
+        tags: ["veggie", "kids", "dinner"]
+    }},
+    {pizza2: {
+        name: "2margherita",
+        price: 12,
+        category: "2entre",
+        popularity: 6,
+        rating: 4.8,
+        tags: ["vegan", "teens", "lunch"]
+    }},
+    {pizza3: {
+        name: "3margherita",
+        price: 14,
+        category: "3entre",
+        popularity: 7,
+        rating: 4.9,
+        tags: ["meat", "dogs", "brekky"]
+    }},
+    {pizza4: {
+        name: "4margherita",
+        price: 16,
+        category: "4entre",
+        popularity: 8,
+        rating: 5,
+        tags: ["vegan", "dogs", "snack"]
+    }},
+    {pizza5: {
+        name: "5margherita",
+        price: 18,
+        category: "5entre",
+        popularity: 9,
+        rating: 3.6,
+        tags: ["breakfast", "couples", "dinner"]
+    }}
+]
 
 
 //////////////////PROBLEM 4////////////////////
@@ -104,10 +146,25 @@
 */
 
 //CODE HERE
+// function callback(arg) {
+//     foodArr.forEach(element => {
+//         if (element.tags.includes(arg)) {
+//             return true
+//         }
+//     });
+// }
 
 // const filteredFood = foodArr.filter(/* CALLBACK HERE */)
 
+// I knew what I wanted to do but I couldn't figure out the syntax quick enough.
 
+const filteredFood = foodArr.filter(callback = (checker) => {
+    foodArr.forEach(function(element, index, argArray){
+       if (element.tags(index) === "dinner" ) {
+        return true
+       }
+    })
+})
 
 //////////////////PROBLEM 5////////////////////
 /* 

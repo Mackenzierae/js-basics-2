@@ -90,46 +90,41 @@ console.log(category)
 
 //CODE HERE
 const foodArr = [
-    {pizza: {
-        name: "margherita",
+    {   name: "margherita",
         price: 10,
         category: "entre",
         popularity: 5,
-        rating: 4.7,
+        rating: 4,
         tags: ["veggie", "kids", "dinner"]
-    }},
-    {pizza2: {
-        name: "2margherita",
+    },
+    {   name: "2margherita",
         price: 12,
         category: "2entre",
         popularity: 6,
-        rating: 4.8,
+        rating: 3,
         tags: ["vegan", "teens", "lunch"]
-    }},
-    {pizza3: {
-        name: "3margherita",
+    }, 
+    {   name: "3margherita",
         price: 14,
         category: "3entre",
         popularity: 7,
-        rating: 4.9,
+        rating: 6,
         tags: ["meat", "dogs", "brekky"]
-    }},
-    {pizza4: {
-        name: "4margherita",
+    },  
+    {   name: "4margherita",
         price: 16,
         category: "4entre",
         popularity: 8,
         rating: 5,
         tags: ["vegan", "dogs", "snack"]
-    }},
-    {pizza5: {
-        name: "5margherita",
+    },
+    {   name: "5margherita",
         price: 18,
         category: "5entre",
         popularity: 9,
-        rating: 3.6,
+        rating: 2,
         tags: ["breakfast", "couples", "dinner"]
-    }}
+    }
 ]
 
 
@@ -146,25 +141,15 @@ const foodArr = [
 */
 
 //CODE HERE
-// function callback(arg) {
-//     foodArr.forEach(element => {
-//         if (element.tags.includes(arg)) {
-//             return true
-//         }
-//     });
-// }
+const filteredFood = foodArr.filter(tagCallback)
 
-// const filteredFood = foodArr.filter(/* CALLBACK HERE */)
-
-// I knew what I wanted to do but I couldn't figure out the syntax quick enough.
-
-const filteredFood = foodArr.filter(callback = (checker) => {
-    foodArr.forEach(function(element, index, argArray){
-       if (element.tags(index) === "dinner" ) {
+function tagCallback(pizzaObj) {
+    if (pizzaObj.tags.includes('dinner')) {
         return true
-       }
-    })
-})
+    }
+}
+// console.log(filteredFood)
+
 
 //////////////////PROBLEM 5////////////////////
 /* 
@@ -195,7 +180,8 @@ const filteredFood = foodArr.filter(callback = (checker) => {
     Use the filter method to filter the foodArr
 
         In the callback, check if the `type` is `above`, 
-        if it is, return objects whose value for the given
+        if it is, 
+        return objects whose value for the given
         property is greater than the `number` passed in
 
         If the type isn't `below`, return objects whose
@@ -206,7 +192,23 @@ const filteredFood = foodArr.filter(callback = (checker) => {
 */
 
 //CODE HERE
-
+//property is rating, populatiry, or price
+//number is number that you want to compare against
+//type is above or below
+function filterByProperty(property, number, type) {
+    let filteredArr = foodArr.filter((element) => {
+        if (type === 'above') {
+            if (element[property] > number) {
+                return true
+            }
+        } else if (type === 'below') {
+            if (element[property] < number) {
+                return true
+            }
+        }
+    })
+    return filteredArr
+}
 
 /*
     Invoke the `filterByProperty` function passing
@@ -216,3 +218,5 @@ const filteredFood = foodArr.filter(callback = (checker) => {
 */
 
 //CODE HERE
+
+console.log(filterByProperty('rating', 4, 'below'))

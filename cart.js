@@ -34,13 +34,10 @@ const cart = [
 ]
 
 //CODE HERE
-function callback(accumulator, currentValue) {
-    return accumulator + currentValue
-}
-// const summedPrice = cart.reduce(/* CALLBACK HERE */)
-const summedPrice = cart.reduce(callback(cart.price))
-
-//ran out of tiiiiiiiime
+const summedPrice = cart.reduce((accumulator, currentValue) => {
+    return  accumulator + currentValue.price
+}, 0)
+//start at index 0
 console.log(summedPrice)
 
 //////////////////PROBLEM 2////////////////////
@@ -59,8 +56,12 @@ console.log(summedPrice)
 */
 
 //CODE HERE
+function calcFinalPrice(cartTotal, couponValue, tax) {
+    cartTotal = (cartTotal + (cartTotal * tax)) - couponValue
+    return cartTotal
+}
 
-
+console.log(calcFinalPrice(100, 40, 0.1))
 
 //////////////////PROBLEM 3////////////////////
 /*  
@@ -84,7 +85,11 @@ console.log(summedPrice)
 
 /*
     TEXT ANSWER HERE
-
+    name: string, customer name for order
+    phone number: string, to call the customer
+    address: string, for delivery
+    order: string, what the customer ordered
+    price: number, cost of the order
 */
 
 /*
@@ -93,3 +98,10 @@ console.log(summedPrice)
 */
 
 //CODE HERE
+let customerObj = {
+    name: "Mackenzie",
+    phoneNumber: "5551231234",
+    address: "123 Main St, Portland OR 97215",
+    order: "chicken fajitas",
+    price: 12
+}

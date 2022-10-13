@@ -59,7 +59,7 @@ const canWeDeliver = (zipCode) => {
         return "Sorry, we can't deliver to that address"
     }
 }
-// console.log(canWeDeliver(85213))
+console.log(canWeDeliver(85213))
 
 /* 
     Problem 2 Continued
@@ -129,8 +129,8 @@ const deals = [
 */
 
 //CODE HERE
-let result = deals[0].title.replace("15", "10")
-console.log(result)
+deals[0].title = deals[0].title.replace("15", "10")
+// console.log("deals:", deals)
 
 /*
     The restaurant is going to continue its
@@ -146,5 +146,7 @@ console.log(result)
 */
 //CODE HERE
 // .trim
-let result2 = deals[1].desc.replace("March", "April").trim()
-console.log(result2)
+
+deals[1].desc = deals[1].desc.replace("March", "April").trim()
+console.log("deals:", deals)
+
